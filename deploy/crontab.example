@@ -1,0 +1,2 @@
+# Weekdays 07:30 and 13:30. flock prevents overlap (the app also takes its own lock).
+30 7,13 * * 1-5  cd /opt/executive-job-search && flock -n /tmp/ejs.cron.lock ./.venv/bin/executive-job-search run >> data/cron.log 2>&1

@@ -1,0 +1,13 @@
+[Unit]
+Description=Executive job search - one read-only discovery pass
+
+[Service]
+Type=oneshot
+WorkingDirectory=/opt/executive-job-search
+EnvironmentFile=/opt/executive-job-search/.env
+ExecStart=/opt/executive-job-search/.venv/bin/executive-job-search run
+# exit codes: 0 ok, 2 partial_failure, 3 SOURCE_UNAVAILABLE, 4 failed, 5 no sources, 6 tracking file error, 7 already running
+SuccessExitStatus=0 2
+NoNewPrivileges=true
+ProtectSystem=strict
+ReadWritePaths=/opt/executive-job-search/data

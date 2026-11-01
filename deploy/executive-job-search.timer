@@ -1,0 +1,9 @@
+[Unit]
+Description=Run executive job search twice on weekdays
+
+[Timer]
+OnCalendar=Mon..Fri 07:30,13:30
+Persistent=true
+
+[Install]
+WantedBy=timers.target

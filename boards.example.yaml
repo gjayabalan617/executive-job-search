@@ -1,0 +1,12 @@
+# Employer board registry for employer_direct mode.
+# Copy to boards.yaml. NOTHING is pre-filled on purpose: board tokens must come from you
+# (the token is the path segment of boards.greenhouse.io/<token> or jobs.lever.co/<token>).
+# Run `executive-job-search validate-boards` to see which entries are reachable.
+boards: []
+#  - provider: greenhouse
+#    token: <board-token>
+#    company: <display name>
+#  - provider: lever
+#    token: <site-name>
+#    region: global        # or eu (api.eu.lever.co)
+#    company: <display name>

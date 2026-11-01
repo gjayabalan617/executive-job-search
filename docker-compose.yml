@@ -1,0 +1,20 @@
+# Untested in the build sandbox (no Docker there). Review before use.
+services:
+  runner:                        # one discovery pass; schedule it with cron/systemd (see deploy/)
+    build: .
+    env_file: .env
+    environment: { EJS_DATA_DIR: /data, EJS_SEEN_PATH: /data/seen_jobs.json, EJS_BOARDS_FILE: /config/boards.yaml }
+    volumes:
+      - ejs-data:/data           # database, exports, reports, seen_jobs.json
+      - ./boards.yaml:/config/boards.yaml:ro
+    restart: "no"
+  dashboard:                     # read-only UI; published on the HOST's loopback only
+    build: .
+    entrypoint: ["streamlit", "run", "/usr/local/lib/python3.12/site-packages/executive_job_search/dashboard.py",
+                 "--server.address", "0.0.0.0", "--server.port", "8501", "--server.headless", "true"]
+    env_file: .env
+    environment: { EJS_DATA_DIR: /data, EJS_SEEN_PATH: /data/seen_jobs.json }
+    volumes: [ "ejs-data:/data" ]
+    ports: [ "127.0.0.1:8501:8501" ]   # never 0.0.0.0: candidate data must not be public
+volumes:
+  ejs-data:

@@ -1,0 +1,41 @@
+*** NOT LIVE RESULTS — SYNTHETIC FIXTURES (no network access used; companies and postings are invented) ***
+{
+  "status": "partial_failure",
+  "mode": "employer_direct",
+  "label": "NOT LIVE RESULTS \u2014 SYNTHETIC FIXTURES (no network access used; companies and postings are invented)",
+  "configured_sources": [
+    "greenhouse:synthetic-gh",
+    "lever:synthetic-lever",
+    "greenhouse:synthetic-missing",
+    "workday:synthetic-workday"
+  ],
+  "successfully_queried_sources": [
+    "greenhouse:synthetic-gh",
+    "lever:synthetic-lever"
+  ],
+  "postings_discovered": 14,
+  "postings_sufficiently_inspected": 13,
+  "new_discoveries": 14,
+  "previously_seen": 0,
+  "pending_retries": 1,
+  "new_qualifying_roles": 4,
+  "tracking_export_status": "updated: +13 new URL(s) in /tmp/ejs-scratch/live/demo/seen_jobs.json",
+  "notification_status": "none: no new qualifying roles ready to notify; 3 qualified role(s) held: provisional score, run `review approve <id>` first",
+  "source_failures": [
+    "workday:synthetic-workday: unsupported (provider 'workday' is not supported (supported: greenhouse, lever))",
+    "greenhouse:synthetic-missing: inaccessible (board not found or not public)"
+  ],
+  "coverage_limitations": [
+    "Employer-direct results are NOT LinkedIn-origin; coverage is limited to the configured Greenhouse/Lever boards.",
+    "Intent coverage is local matching on fetched postings; no external searches were executed.",
+    "Greenhouse posting date = first_published when supplied, otherwise unknown; Lever = createdAt. updated_at/first_seen are never used as the posting date.",
+    "Active status is verified with a single-posting GET only for roles that otherwise qualify.",
+    "LLM evaluator not enabled: scores are deterministic and PROVISIONAL; operator review is required before notifications."
+  ],
+  "report_files": {
+    "markdown": "/tmp/ejs-scratch/live/demo/reports/20261101T181023Z-4853a6/report.md",
+    "json": "/tmp/ejs-scratch/live/demo/reports/20261101T181023Z-4853a6/report.json",
+    "csv": "/tmp/ejs-scratch/live/demo/reports/20261101T181023Z-4853a6/qualifying.csv",
+    "summary": "/tmp/ejs-scratch/live/demo/reports/20261101T181023Z-4853a6/run_summary.json"
+  }
+}

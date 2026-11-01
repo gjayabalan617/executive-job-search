@@ -1,0 +1,15 @@
+============================= test session starts ==============================
+platform linux -- Python 3.13.18, pytest-9.1.1, pluggy-1.6.0
+rootdir: /home/claude/executive-job-search
+configfile: pyproject.toml
+testpaths: tests
+plugins: platformdirs-4.13.3, anyio-4.15.1
+collected 61 items
+
+tests/test_linkedin_notify_llm.py ............                           [ 19%]
+tests/test_persistence_and_urls.py ..............                        [ 42%]
+tests/test_reports_and_ui.py ......                                      [ 52%]
+tests/test_screening_and_eligibility.py ..............                   [ 75%]
+tests/test_sources_and_http.py ...............                           [100%]
+
+============================== 61 passed in <time>s ==============================
